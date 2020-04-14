@@ -26,7 +26,9 @@
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
     </module>
-
+    <!-- make @SuppressWarnings annotations available to Checkstyle, and filter warnings by annotation -->
+    <module name="SuppressWarningsHolder" />
+    <module name="SuppressWarningsFilter" />
     <module name="TreeWalker">
         <module name="OuterTypeFilename"/>
         <module name="IllegalTokenText">
@@ -229,8 +231,5 @@
         <module name="LineLength">
             <property name="max" value="120"/>
         </module>
-        <!-- make @SuppressWarnings annotations available to Checkstyle, and filter warnings by annotation -->
-        <module name="SuppressWarningsHolder" />
-        <module name="SuppressWarningsFilter" />
     </module>
 </module>
