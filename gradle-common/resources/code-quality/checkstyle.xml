@@ -229,5 +229,8 @@
         <module name="LineLength">
             <property name="max" value="120"/>
         </module>
+        <!-- make @SuppressWarnings annotations available to Checkstyle, and filter warnings by annotation -->
+        <module name="SuppressWarningsHolder" />
+        <module name="SuppressWarningsFilter" />
     </module>
 </module>
