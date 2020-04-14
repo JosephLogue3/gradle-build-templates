@@ -34,7 +34,7 @@ spotbugs {
 
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
     reports {
-        xml.enabled = false
+        xml.enabled = true
         html.enabled = true
         html.stylesheet resources.text.fromUri("${code_quality_resources}/findbugs.xsl")
     }
