@@ -4,7 +4,7 @@ repositories {
     }
 }
 dependencies {
-    classpath "io.freefair.gradle:lombok-plugin:4.1.6"
+    classpath "io.freefair.gradle:lombok-plugin:5.1.0"
     classpath "org.springframework.boot:spring-boot-gradle-plugin:2.3.0.RELEASE"
     classpath "io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE"
     classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8.0.1969"
