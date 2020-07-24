@@ -18,8 +18,20 @@ publishing {
 
     publications {
         mavenJava(MavenPublication) {
-            // from components.java
-            artifact jar
+            from components.java
+
+            /*
+          This override became necessary when I removed the last versioned dependency (lmax).
+          We should move this to the common gradle publish step if possible, Gradle bug??
+           */
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
         }
     }
 }
