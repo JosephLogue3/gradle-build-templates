@@ -74,6 +74,7 @@ task processDocker(type: Copy) {
     description = 'Copies the Dockerfile and replaces tokens'
     project.ext.SPRING_PROFILES_ACTIVE = '${SPRING_PROFILES_ACTIVE}'
     project.ext.GIT_COMMIT = getRevision()
+    fileMode = 0755
     from('src/main/docker/')
     into('build/libs/')
     expand(project.properties)
