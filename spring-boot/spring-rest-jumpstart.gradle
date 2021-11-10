@@ -1,5 +1,4 @@
 def local_spring_profile = project.properties['localSpringProfile'] ?: "local"
-def spring_cloud_version = project.properties['springCloudVersion'] ?: "Hoxton.SR4"
 def gradle_templates_source = project.properties['gradleTemplatesSource'] ?: "https://raw.githubusercontent.com/MarletteFunding/gradle-build-templates/master/gradle-common"
 def test_containers_enabled = project.properties['testContainersEnabled'] ?: "false"
 def test_containers_reusable = project.properties['testContainersReusable'] ?: "false"
@@ -77,10 +76,4 @@ task processDocker(type: Copy) {
     into('build/libs/')
     expand(project.properties)
 }
-build.dependsOn processDocker
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${spring_cloud_version}"
-    }
-}
+build.dependsOn processDocke
