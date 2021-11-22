@@ -76,4 +76,4 @@ task processDocker(type: Copy) {
     into('build/libs/')
     expand(project.properties)
 }
-build.dependsOn processDocke
+build.dependsOn processDocker
