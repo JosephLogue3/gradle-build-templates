@@ -67,7 +67,7 @@ pmd {
 // Jacoco Configuration
 jacoco {
     toolVersion = "${jacoco_version}"
-    reportsDir = file("$buildDir/reports/jacoco")
+    reportsDirectory = file("$buildDir/reports/jacoco")
 }
 
 jacocoTestReport {
