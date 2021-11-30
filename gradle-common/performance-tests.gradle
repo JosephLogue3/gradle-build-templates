@@ -27,7 +27,7 @@ task perfTest(type: JavaExec) {
     dependsOn compilePerfTestScala
     description = 'load test with Gatling'
     group = 'Load Test'
-    main = 'io.gatling.app.Gatling'
+    mainClass = 'io.gatling.app.Gatling'
     classpath = sourceSets.perfTest.output + sourceSets.perfTest.runtimeClasspath
     args = ["-s", "performance.simulations.BasicSimulation",  //simulation class
             "-rf", "$buildDir/reports/gatling"                //place to put the report
