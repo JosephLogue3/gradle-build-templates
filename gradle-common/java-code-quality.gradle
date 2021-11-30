@@ -49,8 +49,8 @@ checkstyle {
 
 tasks.withType(Checkstyle) {
     reports {
-        xml.enabled = true
-        html.enabled = true
+        xml.required = true
+        html.required = true
         html.stylesheet resources.text.fromUri("${code_quality_resources}/checkstyle.xsl")
     }
 }
