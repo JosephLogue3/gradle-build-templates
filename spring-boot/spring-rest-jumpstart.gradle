@@ -1,5 +1,5 @@
 def local_spring_profile = project.properties['localSpringProfile'] ?: "local"
-def gradle_templates_source = project.properties['gradleTemplatesSource'] ?: "https://raw.githubusercontent.com/MarletteFunding/gradle-build-templates/master/gradle-common"
+def gradle_templates_source = project.properties['gradleTemplatesSource'] ?: "https://raw.githubusercontent.com/JosephLogue3/gradle-build-templates/master/gradle-common"
 def test_containers_enabled = project.properties['testContainersEnabled'] ?: "false"
 def test_containers_reusable = project.properties['testContainersReusable'] ?: "false"
 def configured_containers = project.properties['configuredContainers'] ?: ""
