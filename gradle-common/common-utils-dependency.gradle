@@ -1,5 +1,13 @@
-plugins {
-    id "com.github.ben-manes.versions" version "0.42.0"
+apply plugin: "com.github.ben-manes.versions"
+
+buildscript {
+  repositories {
+    gradlePluginPortal()
+  }
+
+  dependencies {
+    classpath "com.github.ben-manes:gradle-versions-plugin:$version"
+  }
 }
 
 def isNonStable = { String version ->
