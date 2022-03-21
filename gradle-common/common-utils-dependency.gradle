@@ -6,7 +6,7 @@ buildscript {
   }
 
   dependencies {
-    compileOnly group: "com.github.ben-manes", name:"gradle-versions-plugin", version: "versionsPlugin"
+    developmentOnly group: "com.github.ben-manes", name:"gradle-versions-plugin", version: "versionsPlugin"
   }
 }
 
