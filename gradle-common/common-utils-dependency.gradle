@@ -1,14 +1,7 @@
-apply plugin: "com.github.ben-manes.versions"
+ plugins {
+ id "com.github.ben-manes.versions" version "0.42.0"
+ }
 def versionsPlugin = project.properties['versionsPlugin'] ?: "0.42.0"
-buildscript {
-  repositories {
-    gradlePluginPortal()
-  }
-
-  dependencies {
-    developmentOnly group: "com.github.ben-manes", name:"gradle-versions-plugin", version: "versionsPlugin"
-  }
-}
 
 def isNonStable = { String version ->
     def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
