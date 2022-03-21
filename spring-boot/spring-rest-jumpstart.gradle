@@ -25,7 +25,7 @@ apply from: "${gradle_templates_source}/app-monitoring-configuration.gradle"
 apply from: "${gradle_templates_source}/java-code-quality.gradle"
 apply from: "${gradle_templates_source}/integration-tests.gradle"
 apply from: "${gradle_templates_source}/performance-tests.gradle"
-apply from  "${gradle_templates_source}/common-utils-dependency.gradle"
+apply from: "${gradle_templates_source}/common-utils-dependency.gradle"
 
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
