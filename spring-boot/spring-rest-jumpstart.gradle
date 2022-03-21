@@ -16,6 +16,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'groovy'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: "com.github.ben-manes.versions"
 
 apply from: "${gradle_templates_source}/common-utils-tasks.gradle"
 apply from: "${gradle_templates_source}/git-common-functions.gradle"
@@ -76,4 +77,15 @@ task processDocker(type: Copy) {
     into('build/libs/')
     expand(project.properties)
 }
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    return !stableKeyword && !(version ==~ regex)
+}
+tasks.named("dependencyUpdates").configure {
+    checkConstraints = true
+    checkBuildEnvironmentConstraints = true
+    rejectVersionIf {
+        isNonStable(it.candidate.version)
+    }
 build.dependsOn processDocker
