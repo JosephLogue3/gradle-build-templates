@@ -1,13 +1,12 @@
 apply plugin: "com.github.ben-manes.versions"
 
 buildscript {
-  def versionsPlugin = project.properties['versionsPlugin'] ?: "0.42.0"
   repositories {
     gradlePluginPortal()
   }
 
- dependencies {
-    classpath "com.github.ben-manes:gradle-versions-plugin:${versionsPlugin}"
+  dependencies {
+    classpath "com.github.ben-manes:gradle-versions-plugin:+"
   }
 }
 
