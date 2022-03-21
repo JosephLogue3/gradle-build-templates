@@ -16,7 +16,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'groovy'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: "com.github.ben-manes.versions"
+
 
 apply from: "${gradle_templates_source}/common-utils-tasks.gradle"
 apply from: "${gradle_templates_source}/git-common-functions.gradle"
@@ -25,9 +25,12 @@ apply from: "${gradle_templates_source}/app-monitoring-configuration.gradle"
 apply from: "${gradle_templates_source}/java-code-quality.gradle"
 apply from: "${gradle_templates_source}/integration-tests.gradle"
 apply from: "${gradle_templates_source}/performance-tests.gradle"
+apply from  "${gradle_templates_source}/common-utils-dependency.gradle"
 
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
+
+
 
 bootJar {
     manifest {
