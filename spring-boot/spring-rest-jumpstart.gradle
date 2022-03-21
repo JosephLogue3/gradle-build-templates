@@ -88,4 +88,5 @@ tasks.named("dependencyUpdates").configure {
     rejectVersionIf {
         isNonStable(it.candidate.version)
     }
+}
 build.dependsOn processDocker
