@@ -5,8 +5,8 @@ buildscript {
     gradlePluginPortal()
   }
 
-  dependencies {
-    developmentOnly group: "com.github.ben-manes", name:"gradle-versions-plugin", version: "versionsPlugin"
+ dependencies {
+    classpath "com.github.ben-manes:gradle-versions-plugin:$versionsPlugin"
   }
 }
 
