@@ -25,7 +25,6 @@ apply from: "${gradle_templates_source}/app-monitoring-configuration.gradle"
 apply from: "${gradle_templates_source}/java-code-quality.gradle"
 apply from: "${gradle_templates_source}/integration-tests.gradle"
 apply from: "${gradle_templates_source}/performance-tests.gradle"
-apply from: "${gradle_templates_source}/common-utils-dependency.gradle"
 
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
@@ -80,4 +79,17 @@ task processDocker(type: Copy) {
     into('build/libs/')
     expand(project.properties)
 }
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    return !stableKeyword && !(version ==~ regex)
+}
+tasks.named("dependencyUpdates").configure {
+    checkConstraints = true
+    checkBuildEnvironmentConstraints = true
+    rejectVersionIf {
+        isNonStable(it.candidate.version)
+    }
+}
+
 build.dependsOn processDocker
