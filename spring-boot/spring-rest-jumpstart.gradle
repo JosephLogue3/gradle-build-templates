@@ -7,17 +7,15 @@ def testContiner_application_initializer_class = project.properties['testContine
 
 // local testing
 // def gradle_templates_source = "../../gradle-common"
-plugins{
-  id 'java'
-  id 'groovy'
-  id 'scala'
-  id 'idea'
-  id 'maven-publish'
-  id 'groovy'
-  id 'org.springframework.boot'
-  id 'io.spring.dependency-management'
-  id "com.github.ben-manes.versions" version "0.42.0"
-}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'scala'
+apply plugin: 'idea'
+apply plugin: 'maven-publish'
+apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 
 apply from: "${gradle_templates_source}/common-utils-tasks.gradle"
@@ -81,17 +79,17 @@ task processDocker(type: Copy) {
     into('build/libs/')
     expand(project.properties)
 }
-def isNonStable = { String version ->
-    def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
-    def regex = /^[0-9,.v-]+(-r)?$/
-    return !stableKeyword && !(version ==~ regex)
-}
-tasks.named("dependencyUpdates").configure {
-    checkConstraints = true
-    checkBuildEnvironmentConstraints = true
-    rejectVersionIf {
-        isNonStable(it.candidate.version)
-    }
+// def isNonStable = { String version ->
+//     def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
+//     def regex = /^[0-9,.v-]+(-r)?$/
+//     return !stableKeyword && !(version ==~ regex)
+// }
+// tasks.named("dependencyUpdates").configure {
+//     checkConstraints = true
+//     checkBuildEnvironmentConstraints = true
+//     rejectVersionIf {
+//         isNonStable(it.candidate.version)
+//     }
 }
 
 build.dependsOn processDocker
